@@ -1,0 +1,137 @@
+#include<LPC21xx.h>
+#include "delay.h"
+#include "types.h"
+
+#define D 1<<16		  //P1.16 //1-WIRE DATA LINE
+#define R (IOPIN1&(1<<16))
+
+/**RESET FUNCTION DEFINATION FOR DS18B20**/
+u8 ResetDS18b20(void)
+{
+	u32 presence; 
+	IODIR1|= D;
+	IOPIN1|= D;	
+
+	delay_us(1);     //////////////1Us
+			      
+	IOPIN1&=~(D);
+
+	delay_us(478);   //////////////486Us 
+
+	IOPIN1|= D;
+
+	delay_us(54); //////////////55Us
+
+	presence = IOPIN1 ; 	
+
+	delay_us(423);//////////////431Us
+
+	if(presence&R)
+		return 1;
+	else 
+		return 0;
+
+}
+
+/**READING A BIT USING 1-WIRE PROTOCOL FROM DS18B20**/
+u8 ReadBit(void)
+{
+	u32 B;	
+	IOPIN1&=~(D);
+
+	delay_us(1);//////////////1Us
+
+	IOPIN1|= D;
+
+	IODIR1&= ~(D);
+
+	delay_us(10);//////////////11Us
+
+	B=IOPIN1;
+
+	IODIR1|=D;
+
+	if(B&R)
+		return 1;
+	else 
+		return 0;
+
+}
+
+/**WRITING A BIT USING 1-WIRE PROTOCOL INTO DS18B20**/
+void WriteBit(u8 Dbit)
+{
+	IOPIN1&= ~(D);
+
+	delay_us(1);          ////1Us
+
+	if(Dbit)
+		IOPIN1|= D;
+
+	delay_us(58);//////////////59Us
+
+	IOPIN1|= D;
+
+	delay_us(1);
+
+}
+
+/**READING A BYTE USING 1-WIRE PROTOCOL FROM DS18B20**/
+u8 ReadByte(void)
+{
+
+	u8 i;
+	u8 Din = 0;
+
+	for (i=0;i<8;i++)
+	{
+		Din|=ReadBit()?0x01<<i:Din;
+
+		delay_us(45);        //////46Us
+	}
+	return(Din);
+}
+
+
+/**WRITING A BIT USING 1-WIRE PROTOCOL INTO DS18B20**/
+void WriteByte(u8 Dout)
+{
+	u8 i;
+	for (i=0; i<8; i++)
+	{	    
+		WriteBit((Dout & 0x1)); 
+		Dout = Dout >> 1;
+
+		delay_us(1);
+	}
+	delay_us(98);             //////100Us
+}
+
+
+/**READING TEMPERATURE FROM DS18B20 USING 1-WIRE PROTOCOL**/
+int ReadTemp(void)
+{
+	u8 n,buff[2];
+	int temp;
+	ResetDS18b20();	  //RESET DS18B20
+	WriteByte(0xcc);   // skip ROM
+	WriteByte(0x44);   // perform temperature conversion
+	
+	while(ReadByte()==0xff);    // wait for conversion complete	
+
+	ResetDS18b20();
+
+	WriteByte(0xcc);   // skip ROM
+
+	WriteByte(0xbe);    // read the result
+
+	for (n=0; n<2; n++) // read 9 bytes but, use only one byte
+	{
+		buff[n]=ReadByte();  // read DS1820
+	}
+	temp=buff[1];
+	temp=temp<<8;
+	temp=temp|buff[0];
+	return(temp);
+}
+
