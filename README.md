@@ -1,20 +1,5 @@
 # 🚗 CAN-Based Vehicle Safety & Monitoring System
 
-<h2 align="center">📊 Block Diagram</h2>
-<p align="center">
-  <img src="https://github.com/moreankita/CAN-Based-Vehicle-Safety-Monitoring-System/blob/main/Images/block_diagram.png?raw=true" alt="Block Diagram" width="700">
-</p>
-
-<h2 align="center">🔧 Hardware Setup</h2>
-<p align="center">
-  <img src="./Images/hardware_setup.jpeg" alt="Hardware Setup" width="700">
-</p>
-
-<h2 align="center">🖥️ LCD Output</h2>
-<p align="center">
-  <img src="./Images/lcd_output.jpeg" alt="LCD Output" width="700">
-</p>
-
 ## 📖 Project Overview
 
 This project implements a **CAN-Based Vehicle Safety & Monitoring System** using **LPC2129 ARM7 microcontrollers**. The system is designed to simulate an automotive network where multiple nodes communicate through the **Controller Area Network (CAN)** protocol to improve vehicle safety and monitoring.
