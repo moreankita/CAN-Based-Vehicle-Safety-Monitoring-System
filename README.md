@@ -224,7 +224,7 @@ CAN-Based-Vehicle-Safety-Monitoring-System
 
 ### 📊 Block Diagram
 
-<img src="Images/block_diagram.jpg" width="700">
+<img src="https://github.com/moreankita/CAN-Based-Vehicle-Safety-Monitoring-System/blob/main/Images/block_diagram.png?raw=true" width="700">
 
 ### 🔧 Hardware Setup
 
