@@ -1,9 +1,5 @@
 # 🚗 CAN-Based Vehicle Safety & Monitoring System
 
-<p align="center">
-  <img src="Images/block_diagram.png" alt="Block Diagram" width="700">
-</p>
-
 <h2 align="center">📊 Block Diagram</h2>
 <p align="center">
   <img src="Images/block_diagram.png" alt="Block Diagram" width="700">
