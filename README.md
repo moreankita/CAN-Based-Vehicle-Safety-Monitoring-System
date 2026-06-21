@@ -2,17 +2,17 @@
 
 <h2 align="center">📊 Block Diagram</h2>
 <p align="center">
-  <img src="Images/block_diagram.png" alt="Block Diagram" width="700">
+  <img src="./Images/block_diagram.png" alt="Block Diagram" width="700">
 </p>
 
 <h2 align="center">🔧 Hardware Setup</h2>
 <p align="center">
-  <img src="Images/hardware_setup.jpeg" alt="Hardware Setup" width="700">
+  <img src="./Images/hardware_setup.jpeg" alt="Hardware Setup" width="700">
 </p>
 
 <h2 align="center">🖥️ LCD Output</h2>
 <p align="center">
-  <img src="Images/lcd_output.jpeg" alt="LCD Output" width="700">
+  <img src="./Images/lcd_output.jpeg" alt="LCD Output" width="700">
 </p>
 
 ## 📖 Project Overview
