@@ -1,183 +1,243 @@
-# CAN-Based Vehicle Safety and Monitoring System
+# 🚗 CAN-Based Vehicle Safety & Monitoring System
 
-## Project Overview
+<p align="center">
+  <img src="Images/block_diagram.jpg" alt="Block Diagram" width="700">
+</p>
 
-This project is a CAN-Based Vehicle Safety and Monitoring System developed using LPC2129 microcontrollers. The system demonstrates how multiple embedded nodes can communicate using the Controller Area Network (CAN) protocol for automotive safety applications.
+<p align="center">
+  <img src="https://img.shields.io/badge/Embedded%20C-Language-blue" />
+  <img src="https://img.shields.io/badge/ARM7-LPC2129-green" />
+  <img src="https://img.shields.io/badge/CAN-Protocol-orange" />
+  <img src="https://img.shields.io/badge/Status-Completed-brightgreen" />
+</p>
 
-The project consists of three independent nodes:
+## 📖 Project Overview
 
-1. Main Node
-2. Indicator Node
-3. Reverse Alert Node
+This project implements a **CAN-Based Vehicle Safety & Monitoring System** using **LPC2129 ARM7 microcontrollers**. The system is designed to simulate an automotive network where multiple nodes communicate through the **Controller Area Network (CAN)** protocol to improve vehicle safety and monitoring.
 
-All nodes communicate through CAN protocol to provide real-time monitoring and safety features.
+The project demonstrates:
 
----
-
-## Objective
-
-To design and develop an automotive safety and monitoring system using CAN communication, where:
-
-- Engine temperature is continuously monitored.
-- Vehicle indicators are controlled through interrupts.
-- Reverse obstacle detection is performed using an ultrasonic sensor.
-- Safety alerts are communicated between nodes through CAN.
-
----
-
-## System Architecture
-
-### Main Node
-
-Functions:
-- Reads engine temperature using DS18B20 sensor.
-- Displays information on LCD.
-- Handles left and right indicator interrupts.
-- Sends indicator commands through CAN.
-- Receives reverse alert messages from Reverse Alert Node.
-- Provides warning indication during reverse mode.
-
-### Indicator Node
-
-Functions:
-- Receives CAN messages from Main Node.
-- Controls left and right vehicle indicators.
-- Displays indicator status using LEDs and custom LCD symbols.
-
-### Reverse Alert Node
-
-Functions:
-- Measures obstacle distance using HC-SR05 ultrasonic sensor.
-- Compares measured distance with predefined threshold.
-- Sends obstacle alert information to Main Node through CAN.
+* 🌡️ Engine Temperature Monitoring
+* 💡 Vehicle Indicator Control
+* 🚨 Reverse Obstacle Detection
+* 📡 Real-Time CAN Communication
+* ⚡ Interrupt-Based Event Handling
 
 ---
 
-## Hardware Requirements
+## 🎯 Objectives
 
-- LPC2129 Microcontroller
-- MCP2551 CAN Transceiver
-- DS18B20 Temperature Sensor
-- HC-SR05 Ultrasonic Sensor
-- 16x2 LCD
-- LEDs
-- Push Buttons / Switches
-- USB to UART Converter
-- Power Supply
+* Develop a distributed embedded system using CAN protocol.
+* Monitor engine temperature using DS18B20 sensor.
+* Control vehicle indicators through interrupt events.
+* Detect obstacles during reverse mode using an ultrasonic sensor.
+* Exchange data reliably between multiple nodes.
 
 ---
 
-## Software Requirements
+## 🏗️ System Architecture
 
-- Embedded C
-- Keil uVision
-- Flash Magic
+### 🖥️ Main Node
 
----
+Acts as the central controller of the system.
 
-## Communication Protocol
+#### Responsibilities
 
-### CAN Protocol
-
-The nodes communicate using Controller Area Network (CAN) protocol.
-
-Advantages:
-- Multi-node communication
-- High reliability
-- Error detection capability
-- Reduced wiring complexity
-- Suitable for automotive applications
+* Read engine temperature from DS18B20 sensor
+* Display status on LCD
+* Process indicator interrupts
+* Transmit CAN messages
+* Receive reverse alert messages
+* Generate safety alerts
 
 ---
 
-## Project Flow
+### 💡 Indicator Node
 
-### Main Node Flow
+Responsible for vehicle indicator control.
 
-1. Initialize peripherals.
-2. Read temperature from DS18B20.
-3. Display temperature on LCD.
-4. Detect indicator switch interrupts.
-5. Send indicator status through CAN.
-6. Monitor reverse mode.
-7. Receive obstacle alerts from Reverse Alert Node.
-8. Generate warning indication if obstacle is detected.
+#### Responsibilities
 
-### Indicator Node Flow
-
-1. Initialize CAN.
-2. Wait for CAN message.
-3. Receive indicator command.
-4. Activate corresponding indicator LEDs.
-5. Display indicator direction.
-
-### Reverse Alert Node Flow
-
-1. Initialize ultrasonic sensor.
-2. Measure obstacle distance.
-3. Compare distance with threshold.
-4. Send alert through CAN if obstacle detected.
-5. Continue monitoring.
+* Receive CAN messages from Main Node
+* Control Left Indicator
+* Control Right Indicator
+* Display indicator status using LEDs and custom LCD symbols
 
 ---
 
-## Features
+### 📏 Reverse Alert Node
 
-- CAN-based communication
-- Engine temperature monitoring
-- Reverse obstacle detection
-- Interrupt-based indicator control
-- Custom LCD indicator symbols
-- Real-time monitoring
-- Modular node architecture
+Responsible for obstacle detection.
+
+#### Responsibilities
+
+* Measure obstacle distance using HC-SR05
+* Compare distance with threshold value
+* Send warning status to Main Node through CAN
 
 ---
 
-## Folder Structure
+## 🔄 Working Principle
+
+### 🚗 Main Node
+
+```text
+Initialize System
+        ↓
+Read Temperature
+        ↓
+Display on LCD
+        ↓
+Check Interrupt Status
+        ↓
+Transmit CAN Message
+        ↓
+Receive Reverse Alert
+        ↓
+Generate Warning
+```
+
+### 💡 Indicator Node
+
+```text
+Initialize CAN
+       ↓
+Wait for Message
+       ↓
+Receive Command
+       ↓
+Control Indicators
+```
+
+### 📏 Reverse Alert Node
+
+```text
+Initialize Sensor
+        ↓
+Measure Distance
+        ↓
+Compare Threshold
+        ↓
+Send CAN Alert
+```
+
+---
+
+## 🛠️ Hardware Components
+
+| Component          | Description             |
+| ------------------ | ----------------------- |
+| LPC2129            | ARM7 Microcontroller    |
+| MCP2551            | CAN Transceiver         |
+| DS18B20            | Temperature Sensor      |
+| HC-SR05            | Ultrasonic Sensor       |
+| LCD 16x2           | Display Unit            |
+| LEDs               | Indicator Simulation    |
+| Push Buttons       | Interrupt Inputs        |
+| USB-UART Converter | Programming & Debugging |
+
+---
+
+## 💻 Software Tools
+
+* Embedded C
+* Keil uVision
+* Flash Magic
+
+---
+
+## ✨ Key Features
+
+✅ Multi-Node CAN Communication
+
+✅ Engine Temperature Monitoring
+
+✅ Reverse Obstacle Detection
+
+✅ Interrupt-Based Indicator Control
+
+✅ Real-Time Safety Alerts
+
+✅ LCD Status Display
+
+✅ Automotive Embedded System Architecture
+
+---
+
+## 📂 Repository Structure
 
 ```text
 CAN-Based-Vehicle-Safety-Monitoring-System
 │
-├── main_node
+├── main_node/
+│   ├── source files
+│   └── project files
 │
-├── indicator_node
+├── indicator_node/
+│   ├── source files
+│   └── project files
 │
-├── reverse_node
+├── reverse_node/
+│   ├── source files
+│   └── project files
 │
-├── Images
+├── Images/
+│   ├── block_diagram.jpg
+│   ├── hardware_setup.jpg
+│   ├── lcd_output.jpg
+│   └── reverse_alert.jpg
 │
+├── Project_Report.pdf
 └── README.md
 ```
 
 ---
 
-## Learning Outcomes
+## 📚 Technical Concepts Implemented
 
-Through this project, the following concepts were implemented and understood:
-
-- Embedded C Programming
-- LPC2129 Microcontroller
-- CAN Communication Protocol
-- Interrupt Handling
-- LCD Interfacing
-- DS18B20 Sensor Interfacing
-- Ultrasonic Sensor Interfacing
-- Real-Time Embedded Systems
+* ARM7 LPC2129 Programming
+* Embedded C Development
+* CAN Protocol Communication
+* Interrupt Handling
+* LCD Interfacing
+* DS18B20 Interfacing
+* Ultrasonic Sensor Interfacing
+* Real-Time Embedded Systems
 
 ---
 
-## Applications
+## 🚘 Applications
 
-- Automotive Safety Systems
-- Vehicle Monitoring Systems
-- Industrial Monitoring Systems
-- Distributed Embedded Systems
-- Smart Transportation Solutions
+* Automotive Safety Systems
+* Vehicle Monitoring Systems
+* Reverse Parking Assistance
+* Industrial Monitoring Systems
+* Distributed Embedded Networks
 
 ---
 
-## Author
+## 🖼️ Project Demonstration
 
-Ankita More
+### 📊 Block Diagram
 
-Embedded Systems Project
+<img src="Images/block_diagram.jpg" width="700">
+
+### 🔧 Hardware Setup
+
+<img src="Images/hardware_setup.jpg" width="700">
+
+### 📟 LCD Output
+
+<img src="Images/lcd_output.jpg" width="700">
+
+### 🚨 Reverse Alert Detection
+
+<img src="Images/reverse_alert.jpg" width="700">
+
+---
+
+## 👩‍💻 Author
+
+**Ankita More**
+
+Embedded Systems Engineer
