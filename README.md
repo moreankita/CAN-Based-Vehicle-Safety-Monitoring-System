@@ -2,7 +2,7 @@
 
 <h2 align="center">📊 Block Diagram</h2>
 <p align="center">
-  <img src="./Images/block_diagram.png" alt="Block Diagram" width="700">
+  <img src="https://github.com/moreankita/CAN-Based-Vehicle-Safety-Monitoring-System/blob/main/Images/block_diagram.png?raw=true" alt="Block Diagram" width="700">
 </p>
 
 <h2 align="center">🔧 Hardware Setup</h2>
