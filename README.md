@@ -232,11 +232,7 @@ CAN-Based-Vehicle-Safety-Monitoring-System
 
 ### 📟 LCD Output
 
-<img src="Images/lcd_output.jpg" width="700">
-
-### 🚨 Reverse Alert Detection
-
-<img src="Images/reverse_alert.jpg" width="700">
+<img src="https://github.com/moreankita/CAN-Based-Vehicle-Safety-Monitoring-System/blob/main/Images/lcd_output.jpeg?raw=true\" width="700">
 
 ---
 
