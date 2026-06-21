@@ -228,7 +228,7 @@ CAN-Based-Vehicle-Safety-Monitoring-System
 
 ### 🔧 Hardware Setup
 
-<img src="Images/hardware_setup.jpg" width="700">
+<img src="https://github.com/moreankita/CAN-Based-Vehicle-Safety-Monitoring-System/blob/main/Images/hardware_setup.jpeg?raw=true" width="700">
 
 ### 📟 LCD Output
 
